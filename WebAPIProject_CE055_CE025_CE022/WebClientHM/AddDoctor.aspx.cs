@@ -20,22 +20,12 @@ namespace WebClientHM
         {
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("https://localhost:44360/");
-            /*client = new HttpClient();
-            client.BaseAddress = baseAddress;*/
-            //get();
+
         }
-
-        /*public void get()
-        {
-            var url = "api/doctor";
-            HttpResponse response = client.GetAsync(url).Result;
-
-        }*/
 
         protected void btnadd_Click(object sender, EventArgs e)
         {
-            //client = new HttpClient();
-            //client.BaseAddress = baseAddress;
+           
             string msg = "";
             var dm = new DoctorModel();
             dm.d_name = docname.Text;
@@ -44,8 +34,7 @@ namespace WebClientHM
             dm.d_contact = doccontact.Text;
             dm.d_experience = docexperience.Text;
             dm.d_speciality = docspeciality.Text;
-            //string data = JsonConvert.SerializeObject(dm);
-            //StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+
             var res = client.PostAsJsonAsync("api/doctor", dm).Result;
             if (res.IsSuccessStatusCode)
             {
@@ -82,8 +71,7 @@ namespace WebClientHM
             {
                 msg = "Failed to Update!";
             }
-            //HttpResponse res = client.PostAsync(client.BaseAddress + "api/doctor", content).Result;
-            //string msg = client.PostAsync(client.BaseAddress + "doctor", content).Result.ToString();
+
             errmsg.Text = msg;
         }
     }
