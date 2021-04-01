@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace HospitalManagementWebApiServer.Controllers
 {
+    //Appointment Methods
     public class AppointmentController : ApiController
     {
         [HttpPost]
@@ -36,7 +37,7 @@ namespace HospitalManagementWebApiServer.Controllers
                     if (g == 1)
                     {
                         return Request.CreateResponse(HttpStatusCode.OK, "Booked");
-                        //return (msg);
+
                     }
                     else
                     {
@@ -70,8 +71,6 @@ namespace HospitalManagementWebApiServer.Controllers
                     a_desc = sdr.GetValue(4).ToString(),
                 });
             }
-            //gd.allDoctor = dt;
-            //con.Close();
             return Ok(dm);
         }
     }
